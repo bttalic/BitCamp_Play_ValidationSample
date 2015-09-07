@@ -1,0 +1,24 @@
+@(posts: List[Post])
+
+@main("Welcome to Play") {
+
+    @for(post <- posts){
+        <div class="panel">
+            <div class="panel-heading">
+                @post.title
+            </div>
+            <div class="panel-body">
+                @post.content
+            </div>
+        </div>
+    }
+
+} {
+    <script>
+
+        $(document).ready(function(){
+            //just a stupind bootbox sample
+            bootbox.alert("Hello Java class");
+        });
+    </script>
+}

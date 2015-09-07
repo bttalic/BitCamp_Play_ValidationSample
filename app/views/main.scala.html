@@ -1,0 +1,37 @@
+@(title: String)(content: Html)(scripts: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <link rel="stylesheet" type="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+
+    </head>
+    <body>
+        <div class="container">
+            @if(flash.containsKey("error")){
+                <div class="alert alert-danger">
+                    @flash.get("error")
+                </div>
+            }
+            @if(flash.containsKey("success")){
+                <div class="alert alert-success">
+                @flash.get("success")
+                </div>
+            }
+
+
+        @content
+
+        </div>
+        <script src="@routes.Assets.versioned("javascripts/jquery-1.11.3.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/bootbox.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <!-- additional section for script loading, so all the dependencies are included beforehand -->
+        @scripts
+    </body>
+</html>
